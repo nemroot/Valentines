@@ -1,0 +1,32 @@
+<section class="login">
+    <div class="login__overlay" ng-click="closePrPopup()"></div>
+    <fieldset class="login__section" ng-show="showLoginSection">
+        <a class="login__btn login__btn--facebook" href="/login/facebook">Sign In With Facebook</a>
+        <a class="login__btn login__btn--google" href="/login/google">Sign In With Google</a>
+        <input type="text" class="login__input" ng-model="login.email" required placeholder="Your E-Mail">
+        <input type="password" class="login__input" required ng-model="login.password" placeholder="Your Password">
+        <p class="alert alert--error" id="loginError"></p>
+        <button class="login__btn login__btn--submit" ng-click="signIn()">Sign In</button>
+        <div class="login__info">
+            <span class="left"><a class="login__password" href="#/login">Forgot password?</a></span>
+            <span class="hr">OR</span>
+            <a ng-click="changeLoginView(false)" class="btn btn--bordered">Sign Up</a>
+        </div>
+    </fieldset>
+    <fieldset class="login__section" ng-hide="showLoginSection">
+        <input type="text" ng-model="register.email" id="registerEmail" class="login__input" required placeholder="Your E-Mail">
+        <input type="text" ng-model="register.firstName" id="registerFirstName" class="login__input login__input--little" required placeholder="Your First Name">
+        <div class="login__picture">
+            <input class="login__picture-upload" type="file" accept="image/*" image="image">
+            <img class="login__picture-avatar" ng-show="image" ng-src="{{image.dataURL}}" type="{{image.file.type}}"  >
+        </div>
+        <input type="text" ng-model="register.lastName" id="registerLastName" class="login__input login__input--little" required placeholder="Your Last Name">
+        <input type="password" ng-model="register.password" id="registerPassword" class="login__input" required placeholder="Your Password">
+        <input type="password" ng-model="register.repeatPassword" id="registerRepeatPassword" class="login__input" required placeholder="Please Confirm Password">
+        <button class="login__btn login__btn--submit" ng-click="signUp()">Sign Up</button>
+        <div class="login__info">
+            <span class="hr">OR</span>
+            <a ng-click="changeLoginView(true)" class="btn btn--bordered">Sign In</a>
+        </div>
+    </fieldset>
+</section>

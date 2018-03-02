@@ -1,0 +1,59 @@
+<section class="sections">
+    <div class="jumbotron" ng-class="category" ng-show="listOfEvents.length > 0"></div>
+    <div class="wrapper">
+        <div class="row" ng-hide="listOfEvents.length > 0">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+
+
+        <div class="events">
+            <ul class="events__list">
+                <li class="col-lg-4 col-md-6 events__item" ng-repeat="event in listOfEvents">
+                    <article>
+                        <div class="events__avatar">
+                            <img src='/assets/images/gears.gif' lazy-img="{{ event._source.profilePicture }}" >
+                            <div class="destination">
+                                <h6>{{ event._source.address.country }} / {{ event._source.address.city }}</h6>
+                                <span>{{event.sort[0] | number: 1}} km</span>
+                            </div>
+                        </div>
+                        <div class="events__info">
+                            <h3 class="events__name">
+                                {{ event._source.name }}
+                            </h3>
+                            <div class="rating">
+                                <div class="rating__place">
+                                    <span style="width: {{event._source.overall_star_rating * 100 / 5}}%"></span>
+                                </div>
+                            </div>
+                            <div class="navigation">
+                                <div class="col-md-5" style="padding-left: 0; padding-right: 5px;">
+                                    <a class="btn btn--default col-md-6" style="width: 100%">Save</a>
+                                </div>
+                                <div class="col-md-4" style="padding-right: 5px; padding-left: 5px;">
+                                    <a href="#/event/{{ event._source.id }}" ng-click="selectEventInfo(event._source)" class="btn btn--primary col-md-12" >See More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+        </div>
+        <div class="row" ng-show="loadingMoreInformation" style="margin-bottom: 30px;">
+            <div class="spinner" style="margin: 0px;">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<categoriespopup ng-show="showPopup"></categoriespopup>
+
+

@@ -1,0 +1,32 @@
+{
+  "scripts": {
+    "libs" : [
+      "src/libs/jquery-3.1.1.js",
+      "src/libs/angular.js",
+      "src/libs/ng-infinite-scroll.js",
+      "src/libs/ng-map.min.js",
+      "src/libs/angular-ui-router.js",
+      "src/libs/angular-lazy-img.js",
+      "src/libs/angular-animate.min.js",
+      "src/libs/angularjs-geolocation.min.js",
+      "src/libs/angular-facebook.js"
+    ],
+    "app": [
+      "src/js/app.js",
+      "src/js/services/CategoriesService.js",
+      "src/js/services/EventsService.js",
+      "src/js/factories/TitleFactory.js",
+      "src/js/directives/categoriesPopupDirective.js",
+      "src/js/directives/loginDirective.js",
+      "src/js/directives/fileDirective.js",
+      "src/js/controllers/mainController.js",
+      "src/js/controllers/loginController.js",
+      "src/js/controllers/registerController.js",
+      "src/js/controllers/homeController.js",
+      "src/js/controllers/eventsController.js",
+      "src/js/controllers/eventsInnerController.js",
+      "src/js/controllers/categoryController.js",
+      "src/js/controllers/profileController.js"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+<section class="slider" data-text="Your Hangover Begins Here">
+    <ul class="slider__list">
+        <li class="slider__item" ng-class="{'active': item == sliderItem[0]}" ng-repeat="item in sliderItem" style="background: url('{{item}}') no-repeat;background-size: cover;background-position: center;"></li>
+    </ul>
+    <div class="wrapper">
+        <span class="icon-mouse" ng-click="scrollToCats()"></span>
+    </div>
+</section>
+ <!--<div style="width:100px;height:100px;">
+                        <form ref='uploadForm' 
+                        id='uploadForm' 
+                        action='http://localhost:8080/user/pictureUpload' 
+                        method='post' 
+                        encType="multipart/form-data">
+                            <input type="file" name="profilePicture" />
+                            <input type='submit' value='Upload!' />
+                        </form>    
+                    </div>-->
+
+<section class="categories">
+    <div class="wrapper">
+        <h3 class="main-title">Discover travel</h3>
+        <div class="row" ng-hide="categoriesList.length > 0">
+            <div class="spinner"  style="margin-top: 20px">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+        <div class="categories__list">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 {{cat._source.name | lowercase}}" ng-repeat="cat in categoriesList" >
+                <div class="categories__item">
+                    <img ng-src='{{cat._source.picture}}'>
+                    <a href="#/category/{{cat._source.name}}" data-link="test" ng-click="getPlacesInfo(cat._source)">
+                        <h3 class="categories__title">{{cat._source.name}}</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<categoriespopup ng-show="showPopup"></categoriespopup>

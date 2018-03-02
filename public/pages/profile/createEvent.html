@@ -1,0 +1,70 @@
+<div class="profile-form">
+    <div class="col-md-6">
+        <label for="eventName">Event Name</label>
+        <input class="input" ng-model="eventRegister.name" type="text">
+    </div>
+    <div class="col-md-3">
+        <label for="">Start Date</label>
+        <input class="input" ng-model="eventRegister.date.startDate" type="date">
+    </div>
+    <div class="col-md-3">
+        <label for="">End Date</label>
+        <input class="input" ng-model="eventRegister.date.endDate" type="date">
+    </div>
+    <div class="col-md-12">
+        <label for="eventDesc">Event Description</label>
+        <textarea class="textarea" ng-model="eventRegister.description"></textarea>
+    </div>
+    <div class="col-md-12">
+        <label for="">Event Pictures</label>
+        <div class="event-pictures">
+            <div class="col-md-4">
+                <div class="event-pictures__list">
+                    <input class="event-pictures-upload" type="file" accept="image/*" image="image1">
+                    <div class="event-pictures-avatar" id="firstPicture"
+                        style="background: url({{image1.dataURL}}) no-repeat; background-size:cover;">
+                        <img ng-src="{{image1.dataUrl}}">
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="event-pictures__list">
+                    <input class="event-pictures-upload" type="file" accept="image/*" image="image2">
+                    <div class="event-pictures-avatar" id="secondPicture"
+                        style="background: url({{image2.dataURL}}) no-repeat; background-size:cover;">
+                        <img ng-src="{{image2.dataUrl}}">
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="event-pictures__list">
+                    <input class="event-pictures-upload" type="file" accept="image/*" image="image3">
+                    <div class="event-pictures-avatar" id="thirdPicture"
+                        style="background: url({{image3.dataURL}}) no-repeat; background-size:cover;">
+                        <img ng-src="{{image3.dataUrl}}">
+                        </div>
+                </div>
+            </div>
+        </div>
+			
+    </div>
+    <div class="col-md-12">
+        <label for="">Event on map</label>
+        <div class="profile__map">
+            <ng-map 
+                zoom="14" 
+                style="height: 250px" 
+                scrollwheel="false"
+                center="current-location"
+                styles='[{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}]'
+            >
+                
+                <marker position="current-location"></marker>
+            </ng-map>
+            <div class="profile__map--loading" ng-show="mapLoading"></div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <button class="btn btn--indigo" style="margin-top: 20px" ng-click="createEvent()">Create Event</button>
+    </div>
+</div>

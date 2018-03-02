@@ -1,0 +1,48 @@
+/* Translate 3d */
+@mixin translate3d($percent,$degree) {
+  -webkit-transform: translate3d($percent, 0, 0) rotateY($degree);
+  -moz-transform: translate3d($percent, 0, 0) rotateY($degree);
+  transform: translate3d($percent, 0, 0) rotateY($degree);
+}
+
+/* Rotate */
+@mixin rotate($degree) {
+  -ms-transform: rotate($degree);
+  -webkit-transform: rotate($degree);
+  transform: rotate($degree);
+}
+
+/* Transition */
+@mixin transition($what, $times, $effect) {
+  -webkit-transition:$what $times $effect;
+  -moz-transition: $what $times $effect;
+  -o-transition: $what $times $effect;
+  transition:$what $times $effect;
+}
+
+/* Transform*/
+@mixin transform($val) {
+  -webkit-transform: translate3d($val);
+  -moz-transform: translateX($val);
+  -ms-transform: translateX($val);
+  -o-transform : translateX($val);
+  transform: translateX($val);
+}
+
+/* Order */
+@mixin order($place) {
+  -webkit-box-ordinal-group: $place;
+  -moz-box-ordinal-group: $place;
+  -ms-flex-order: $place;
+  -webkit-order: $place;
+  order: $place;
+}
+
+/* Scale */
+@mixin scale($zoom) {
+  -webkit-transform: scale($zoom);
+  -moz-transform: scale($zoom);
+  -ms-transform: scale($zoom);
+  -o-transform: scale($zoom);
+  transform: scale($zoom);
+}

@@ -1,0 +1,150 @@
+.login {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: fixed;
+    z-index: 9999;
+
+    &__overlay {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        display: block;
+        z-index: 1;
+        background: rgba(0,0,0,0.4);
+    }
+
+    &__picture {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: #76c2af url('../images/uploadImage.svg') no-repeat center;
+        float: right;
+        position: relative;
+        
+
+        &-upload {
+            width:90px;
+            height: 90px;
+            border-radius: 50%;
+            z-index: 0;
+            background: url('../images/uploadImage.svg') no-repeat center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        &-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        &:hover {
+            &-upload {
+                z-index: 2;
+            }
+        }
+
+    }
+
+    &__section {
+        width: 350px;
+        height: auto;
+        margin: 0 auto;
+        padding: 20px;
+        background: #fafafa;
+        border-radius: 3px;
+        border: 1px solid #E0E0E0;
+        position: fixed;
+        top: 150px;
+        left: 50%;
+        margin-left: -175px;
+        z-index: 2;
+    }
+
+    &__btn {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        font-family: $secondary-font;
+        cursor: pointer;
+        margin-bottom: 10px;
+        display: block;
+        text-decoration: none;
+        line-height: 40px;
+        text-align: center;
+
+        &--facebook {
+            background: #3b5998;
+        }
+
+        &--google {
+            background: #d34836;
+        }
+
+        &--submit {
+            background: $primary-color;
+        }
+
+    }
+
+    &__input {
+        width: 100%;
+        height: 40px;
+        border-radius: 3px;
+        background: #fff;
+        outline: none;
+        padding: 0 15px;
+        margin-bottom: 10px;
+        border: 1px solid #E0E0E0;
+        float: left;
+
+        &--little {
+            width: calc(100% - 100px);
+        }
+
+    }
+
+    &__register {
+        padding: 5px 10px;
+        border: 1px solid $primary-color;
+        font-family: $secondary-font;
+        border-radius: 2px;
+        color: $secondary-color;
+        text-decoration: none;
+        @include transition(all , 0.1s , linear);
+
+        &:hover{
+            background: $primary-color;
+            color: #fff;
+        }
+
+    }
+
+    &__password {
+        color: $secondary-color;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+    }
+
+    &__info {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+}

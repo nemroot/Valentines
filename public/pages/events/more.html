@@ -1,0 +1,91 @@
+<section class="sections">
+    <div class="events__more">
+        
+        <div class="map-place">
+            <ng-map 
+                zoom="14" 
+                style="height:100%" 
+                scrollwheel="false"
+                styles='[{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}]'
+            >
+                <directions
+                        draggable="false"
+                        polyline-options='{strokeColor: "#e64a19",strokeWeight: 4}'
+                        panel="directions-panel"
+                        travel-mode="DRIVING"
+                        origin="current-location"
+                        destination="{{coordinates}}"
+                        center="{{coordinates}}">
+                </directions>
+                <marker id="start" position="current-location">
+                </marker>
+                <marker id="end" position="{{coordinates}}">
+                </marker>
+            </ng-map>
+        </div>
+
+        <div class="info-place">
+            <div class="wrapper">
+                <div class="main-info">
+                    <div class="picture-place">
+                        <img ng-src="{{ selectedEvent.profilePicture }}" alt="{{ selectedEvent.name }}">
+                    </div>
+                    <div class="detailed-info">
+                        <h3 class="name">{{ selectedEvent.name }}</h3>
+                        <h6 class="address">{{ selectedEvent.address.street }}</h6>
+
+                        <div class="rating">
+                            <div class="rating__place">
+                                <span style="width: {{selectedEvent.overall_star_rating * 100 / 5}}%"></span>
+                            </div>
+                        </div>
+
+                        <div class="review-place">
+                             <div class="review-add" ng-show="isLogined">
+                                <h3>Add Review</h3>
+                                 <textarea ng-model="review.reviewText" required></textarea>
+                                 <div class="rating" style="margin-bottom: 10px;">
+                                    <div class="rating__place">
+                                        <span class="rating-star-info"></span>
+                                        <ul class="add-rating">
+                                            <li class="rating-star" data-index="1"></li>
+                                            <li class="rating-star" data-index="2"></li>
+                                            <li class="rating-star" data-index="3"></li>
+                                            <li class="rating-star" data-index="4"></li>
+                                            <li class="rating-star" data-index="5"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                 <button class="btn btn--primary" ng-click="addReview()">Add Review</button>
+                             </div>
+                             <h3 class="error" ng-hide="isLogined">For Adding Review You Must Sign In</h3>
+                        </div>
+
+                       <div class="review-place">
+                           <h3>Reviews</h3>
+                           <ul class="review-list">
+                               <li ng-repeat="review in reviewList" ng-show="reviewList.length > 0">
+                                   <div class="avatar">
+                                        <img ng-src="{{ review._source.user._source.picture }}">
+                                        <div class="rating">
+                                            <div class="rating__place">
+                                                <span style="width: {{review._source.rating * 100 / 5}}%"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="information">
+                                        <h3 class="user-name">{{ review._source.user._source.name }}</h3>
+                                        <h6 class="review-date">{{ review._source.date | date : longDate }}</h6>
+                                        <p>{{ review._source.reviewText }}</p>
+                                    </div>
+                               </li>
+                           </ul>
+                       </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

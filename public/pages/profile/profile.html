@@ -1,0 +1,23 @@
+<section class="sections">
+
+        <div class="profile">
+            <div class="profile__navigation">
+                <ul class="profile__navigation__list">
+                    <li class="profile__navigation__item">
+                        <a ui-sref-active="active" ui-sref="profile.edit">Profile Edit</a>
+                    </li>
+                    <li class="profile__navigation__item">
+                        <a ui-sref-active="active" ui-sref="profile.events">My Events</a>
+                    </li>
+                    <li class="profile__navigation__item">
+                        <a ui-sref-active="active" ui-sref="profile.createEvent">Create Event</a>
+                    </li>
+                    <li class="profile__navigation__item">
+                        <a ui-sref-active="active" ui-sref="profile.saved">Saved Places</a>
+                    </li>
+                </ul>
+            </div>
+            <ui-view class="profile__content" name="profile"></ui-view>
+        </div>
+
+</section>

@@ -1,0 +1,17 @@
+.alert {
+    width:100%;
+    height: auto;
+    display: none;
+    text-align: center;
+    float: left;
+    margin-top: -10px;
+    line-height: 40px;
+    
+    &--visible {
+        display: block;
+    }
+
+    &--error {
+        color: red;
+    }
+}

@@ -1,0 +1,74 @@
+.rating {
+    width: 100%;
+    height: auto;
+    display: block;
+    float: left;
+    margin-top: 20px;
+    position: relative;
+
+    &__place {
+        width: 150px;
+        height: 23px;
+        background: url('../images/icons/rating_none.png') no-repeat;
+        background-size: 150px 23px;
+        display: block;
+        float: left;
+        
+            span {
+                height: 23px;                
+                background: url('../images/icons/rating_full.png') no-repeat;
+                background-size: 150px 23px;
+                display: block;
+                float: left;
+            }
+    }
+
+    .add-rating {
+        width: 150px;
+        height: 23px;
+        display: flex;
+        background: transparent;
+        justify-content: space-between;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url('../images/icons/rating_none.png') no-repeat;
+        background-position: center;
+        background-size: 150px 23px;
+
+        li {
+            width: 30px;
+            height: 23px;
+            cursor: pointer;
+
+            &:hover {
+                background: url('../images/icons/rating_full.png') no-repeat;
+                background-size: 150px 23px;
+
+                &:nth-child(1) {
+                    background-position: 0px;
+                }
+
+                &:nth-child(2) {
+                    background-position: 2px;
+                }
+
+                &:nth-child(3) {
+                    background-position: 3px;
+                }
+
+                &:nth-child(4) {
+                    background-position: 4px;
+                }
+
+                &:nth-child(5) {
+                    background-position: 5px;
+                }
+                
+            }
+
+        }
+
+    }
+
+}

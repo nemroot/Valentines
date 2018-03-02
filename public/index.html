@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="doorsAround">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+    <title>Trackuna</title>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="icon" href="/assets/images/icons/icon.png">
+    <base href="/">
+</head>
+<body ng-controller="MainController" ng-cloak>
+
+    <header ui-sref-active="category">
+        <div class="wrapper">
+            <h1 class="logo">
+                <a href="#/"><img src="/assets/images/logo.png" alt="Doors Around"></a>
+            </h1>
+            <div class="profilePlace" ng-hide="isLogined">
+                <a ng-click="openLogin()" class="btn btn--darker">Sign in</a>
+                <!-- <a href="/login/facebook" class="btn btn--indigo">Login With Facebook</a> -->
+            </div>
+
+            <div class="profilePlace" ng-show="isLogined">
+                <img class="user__avatar" ng-src="{{ userAvatar }}">
+                <div class="user__info">
+                    <span class="user__name">{{ userInformation.name }}</span>
+                    <span class="user__settings" ng-click="profileToggle()">Settings</span>
+                </div>
+                <div class="user__settings-details" ng-show="profileOpen">
+                    <ul>
+                        <li><a ui-sref="profile.edit" >Profile Edit</a></li>
+                        <li><a ui-sref="profile.saved">Saved List</a></li>
+                        <li><a href="/profile/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="profilePlace" style="margin-right: 15px">
+                <button class="btn btn--darker" ng-click="createEventCheck()">Create Event</button>
+            </div>
+
+            <button class="search-button" ng-show="!mainPage" ng-click="showCategories()">
+                <i class="fa fa-search" aria-hidden="true"></i> <span>Search city, club, event or artist ...</span>
+            </button>
+
+        </div>
+    </header>
+
+    <ui-view name="main"></ui-view>
+
+    <footer>
+        <div class="wrapper">
+            <ul class="navigation">
+                <li class="col-md-2">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/about">Mobile Apps</a></li>
+                        <li><a href="/about">Blog</a></li>
+                        <li><a href="/about">Jobs</a></li>
+                    </ul>
+                </li>
+                <li class="col-md-2">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="/about">Help</a></li>
+                        <li><a href="/about">Support</a></li>
+                        <li><a href="/about">Legal</a></li>
+                        <li><a href="/about">Copyright</a></li>
+                    </ul>
+                </li>
+                <li class="col-md-3">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="/about">Facebook</a></li>
+                        <li><a href="/about">Twitter</a></li>
+                        <li><a href="/about">Instagram</a></li>
+                        <li><a href="/about">Google +</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <hr>
+            <div class="copyright">
+                <span class="left">Copyright</span>
+                <span class="right">Created with ❤</span>
+            </div>
+        </div>
+    </footer>
+
+    <profile ng-if="loginOpen"></profile>
+
+    <script src="//maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/libs.js"></script>
+    <script src="/assets/js/app.js"></script>
+</body>
+</html>

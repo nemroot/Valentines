@@ -1,0 +1,19 @@
+<section class="categories__popup">
+    <span class="close" ng-click="hideCategories()"></span>
+    <fieldset class="categories__search">
+        <input type="text" autofocus ng-model="categoryName" placeholder="SEARCH CATEGORY">
+    </fieldset>
+<section class="categories categories--popup">
+    <div class="wrapper">
+        <h3 class="main-title">Discover Travel</h3>
+<div class="categories__list">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 {{cat._source.name | lowercase}}" ng-repeat="cat in categoriesList | filter:categoryName" >
+                <div class="categories__item">
+                    <img ng-src='{{cat._source.picture}}'>
+                    <a href="#/category/{{cat._source.name}}" data-link="test" ng-click="getPlacesInfo(cat._source)">
+                        <h3 class="categories__title">{{cat._source.name}}</h3>
+                    </a>
+                </div>
+            </div>    </div>
+</section>
+</section>
